@@ -1,0 +1,39 @@
+.slotContianer{
+  width: 100vw;
+  height: 100vh;
+  border: 5px solid red;    
+}
+
+.slots{
+  position: relative;
+  width: 237px;
+  height: 237px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3 * 79px;
+  border: 1px solid black;  
+
+  ul{
+    list-style-type: none;
+  }
+}
+
+.reel{
+  position: relative;
+  width: 79px;
+  border: 1px solid rgb(255, 0, 0);
+  height: 237px;
+  background-image: url('../../../public/images/slotreel.png');
+  background-position: 0 0;
+  background-repeat: repeat-y;
+}
+
+
+.slotreel{
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: auto;
+}
+  
