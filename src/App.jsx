@@ -10,7 +10,8 @@ function App() {
   return (
     <div className={styles.app}>
      <Slot/>
-     
+     <Slot/>
+     <Slot/>
     </div>
   )
 }
