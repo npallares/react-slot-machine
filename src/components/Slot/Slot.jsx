@@ -65,7 +65,7 @@ const Slot = () => {
                 console.log('vueltas',vueltas)
                 getWinner()
                 resolve(vueltas)
-                setPositionIndex(79 * vueltas + positionIndex)
+                setPositionIndex(iconHeight * vueltas + positionIndex)
                 setVueltas(getRounds({options}))
             }, totalTime)
         })
@@ -92,7 +92,6 @@ const Slot = () => {
        <>
         <div ref={slotRef} className={styles.reel}></div>
         <button onClick={handleCLick}>Girar</button>
-        <img className={styles.slotreel} src={'/public/images/slotreel.png'}/>
        </>
     )
 }
