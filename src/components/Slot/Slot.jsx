@@ -8,7 +8,7 @@ const iconHeight = 79;
 const timePerIcon = 100; // time
 const itemsInitialState=['SIETE','BANANA','MELON','LIMON','BAR','CAMPANA','NARANJA','UVA','CEREZA']
 
-const Slot = ({rounds}) => {
+const Slot = ({rounds, setResult}) => {
     const slotRef = useRef()
     const [items, setItems] = useState(itemsInitialState)
     const [positionIndex, setPositionIndex] = useState(0)
@@ -35,6 +35,7 @@ const Slot = ({rounds}) => {
      
     const getWinner = () => {     
         const winner =  items[vueltas + 1] ? items[vueltas + 1] : items[1]
+        setResult(winner)
         //console.log("WINNER", winner)
         
         const newFirstIndex = items[vueltas] ?  items[vueltas] : items[0]
@@ -43,8 +44,8 @@ const Slot = ({rounds}) => {
         const newFitstIndex = getNewFirstIndex(winner) 
         const newArray = getNewArray(newFitstIndex) 
         
-        console.log({winner, newFirstIndex, newArray})
-        //return {winner, newFirstIndex, newArray}
+        //console.log({winner, newFirstIndex, newArray})
+        return {winner, newFirstIndex, newArray}
     }
     
     const roll = async() => {        
@@ -56,10 +57,10 @@ const Slot = ({rounds}) => {
             
             setTimeout(()=>{
                 //console.log('vueltas',vueltas)
-                getWinner()
                 resolve(vueltas)
                 setPositionIndex(iconHeight * vueltas + positionIndex)
                 setVueltas(getRounds({options}))
+                getWinner()
             }, totalTime)
         })
         
@@ -93,6 +94,7 @@ const Slot = ({rounds}) => {
 export default Slot
 
 Slot.propTypes = {
-    rounds: PropTypes.number.isRequired
+    rounds: PropTypes.number.isRequired,
+    setResult: PropTypes.func.isRequired
 }
 

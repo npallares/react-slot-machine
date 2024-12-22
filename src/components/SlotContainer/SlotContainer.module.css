@@ -12,3 +12,24 @@
     justify-content: center;
     align-items: center;
 }
+
+.message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    font-size: 15px;
+}
+
+.low{
+    color: yellow;
+}
+
+.higth{
+    color: green;
+}
+
+.lose{
+    color: red;
+}
