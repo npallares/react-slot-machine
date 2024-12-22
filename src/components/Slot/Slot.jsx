@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import PropTypes from 'prop-types';
 import styles from "./Slot.module.css"
 import getRounds from './utils/getRounds';
 
@@ -7,15 +8,7 @@ const iconHeight = 79;
 const timePerIcon = 100; // time
 const itemsInitialState=['SIETE','BANANA','MELON','LIMON','BAR','CAMPANA','NARANJA','UVA','CEREZA']
 
-/* const getRandomArray = (items,newFirstIndex) =>{
-    const antes = items.slice(newFirstIndex-1, items.length);
-       const despues = items.slice(0,newFirstIndex-1);
-       const nuevoArray = [...antes,...despues];
-       return nuevoArray
-} */
-
-const Slot = () => {
-    const rounds = getRounds({options})
+const Slot = ({rounds}) => {
     const slotRef = useRef()
     const [items, setItems] = useState(itemsInitialState)
     const [positionIndex, setPositionIndex] = useState(0)
@@ -62,7 +55,7 @@ const Slot = () => {
             slotRef.current.style.backgroundPositionY = `-${rounds*10}px`;
             
             setTimeout(()=>{
-                console.log('vueltas',vueltas)
+                //console.log('vueltas',vueltas)
                 getWinner()
                 resolve(vueltas)
                 setPositionIndex(iconHeight * vueltas + positionIndex)
@@ -83,17 +76,23 @@ const Slot = () => {
     }
 
     useEffect(()=>{
-          console.log('useEffect items')  
-    },[items])
+          //console.log('useEffect items')
+          handleCLick()  
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[rounds])
 
   
  
     return (
        <>
         <div ref={slotRef} className={styles.reel}></div>
-        <button onClick={handleCLick}>Girar</button>
        </>
     )
 }
 
 export default Slot
+
+Slot.propTypes = {
+    rounds: PropTypes.number.isRequired
+}
+
