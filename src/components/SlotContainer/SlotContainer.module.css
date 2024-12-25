@@ -1,35 +1,89 @@
+.slotPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    width: 100%;
+    height: 100vh;
+    font-size: 15px;
+    border: 3px solid rgb(168, 90, 90);
+}
+
 .slotContainer{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: auto;
+    width: 40%;
     height: auto;
+    border-radius: 15px;
+    /* border: 3px solid #535bf2; */
+     
+}
+
+.templateContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height:240px;
+    background-color: #d3d3d3;
+    border-radius: 5px;
 }
 
 .slotsSection{
     display: flex;
+    padding: 3px;
     justify-content: center;
     align-items: center;
+    border: 3px solid #2c34c7; 
+    border-radius: 5px;
+    z-index: 8;
+   /*  background-color: #535bf2; */
 }
 
-.message{
+.winLine{
+    position: absolute;
+    z-index: 99;
+    border: 1px solid #ff6600;
+    width: 300px;
+}
+
+.message {
+    position:block;
+    font-family: "Press Start 2P", serif;
+    font-size: 5em;
+    font-weight: 400;
+    font-style: normal;
+    z-index: 99;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 70px;
     font-size: 15px;
 }
 
 .low{
-    color: yellow;
+    color: #fffc37;
 }
 
 .higth{
-    color: green;
+    color: #2cca04;
 }
 
 .lose{
-    color: red;
+    color: #ffffff;
+}
+
+.slotButton{
+    font-size: 18px;
+    border-style: none;
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-top: 1rem;
+    width: 170px;
+}
+
+.slotButton:hover{
+    background-color: #535bf2;
 }

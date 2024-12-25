@@ -10,7 +10,7 @@ import { WIN_RATE } from "../../config/winrate"
 const SlotContainer = () => {
   const [rounds, setRounds] = useState(getRandomRounds())
   const {roundResult, setResultOne, setResultTwo, setResultThree} = useResults()
-  const [label, setLabel] = useState('HOLA')
+  const [label, setLabel] = useState('')
 
   const stylesFromLabel = (roundResult) => {
     if(!roundResult) return styles.lose 
@@ -18,20 +18,26 @@ const SlotContainer = () => {
   }
 
   useEffect(()=>{
-    setLabel(roundResult.win ? 'WIN' : 'LOSE')
+    if(!roundResult.win) return setLabel('LOSE -1')
+    setLabel(roundResult.win && roundResult.rate ===  WIN_RATE.HIGTH ? 'WIN + 9' : 'WIN + 1')
     console.log('Nico roundResult', roundResult, label)
   },[rounds, roundResult,label])
 
   if(!rounds) return
   return (
-    <section className={styles.slotContainer}>
+    <section className={styles.slotPage}>
       <h1 className={clsx(styles.message, stylesFromLabel(roundResult.rate))}>{label}</h1>
-      <div className={styles.slotsSection}>
-        <Slot rounds={rounds} setResult={setResultOne}/>
-        <Slot rounds={rounds} setResult={setResultTwo}/>
-        <Slot rounds={rounds} setResult={setResultThree}/>
+      <div className={styles.slotContainer}>
+      <div  className={styles.templateContainer}>
+        <div className={styles.slotsSection}>
+          <span className={styles.winLine}/> 
+          <Slot rounds={rounds} setResult={setResultOne}/>
+          <Slot rounds={rounds} setResult={setResultTwo}/>
+          <Slot rounds={rounds} setResult={setResultThree}/>
+        </div>
       </div>
-      <button onClick={() => setRounds(getRandomRounds())}>Girar</button>
+        <button className={styles.slotButton}onClick={() => setRounds(getRandomRounds())}>Girar</button>
+      </div>
     </section>
   )
 }
