@@ -8,9 +8,11 @@ import { WIN_RATE } from "../../config/winrate"
 
 
 const SlotContainer = () => {
-  const [rounds, setRounds] = useState(getRandomRounds())
+  //const [status, setStatus] = useState('uninitalized')
+  const [rounds, setRounds] = useState(0)
   const {roundResult, setResultOne, setResultTwo, setResultThree} = useResults()
   const [label, setLabel] = useState('')
+  const [counter, setCounter] = useState(0)
 
   const stylesFromLabel = (roundResult) => {
     if(!roundResult) return styles.lose 
@@ -18,14 +20,35 @@ const SlotContainer = () => {
   }
 
   useEffect(()=>{
-    if(!roundResult.win) return setLabel('LOSE -1')
-    setLabel(roundResult.win && roundResult.rate ===  WIN_RATE.HIGTH ? 'WIN + 9' : 'WIN + 1')
-    console.log('Nico roundResult', roundResult, label)
-  },[rounds, roundResult,label])
+    console.log('CHANGE ROUNDS', rounds)
+  },[rounds])
 
-  if(!rounds) return
+  useEffect(()=>{
+    const timer = setTimeout(()=>{
+
+      console.log('nico roundResult',roundResult)
+      if(!roundResult.win){
+        setCounter(counter-1)
+        return setLabel('Lose -1')
+      }
+      if(roundResult.win && roundResult.rate ===  WIN_RATE.HIGTH){
+        setCounter(counter+9)
+        return  setLabel('Win + 9')
+      }
+      setCounter(counter+1)
+      return setLabel( 'Win + 1')
+    },500)
+    return ()=>{
+      setLabel( '...')
+      return clearTimeout(timer)
+    }
+  },[roundResult])
+
+
+  
   return (
     <section className={styles.slotPage}>
+      <h1 className={clsx(styles.message)}>{'CREDITS: '+counter}</h1>
       <h1 className={clsx(styles.message, stylesFromLabel(roundResult.rate))}>{label}</h1>
       <div className={styles.slotContainer}>
       <div  className={styles.templateContainer}>

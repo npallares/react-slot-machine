@@ -1,4 +1,5 @@
 export const WIN_RATE = {
     HIGTH : 'higth',
-    LOW : 'low'
+    LOW : 'low',
+    LOSE : 'lose'
 }
