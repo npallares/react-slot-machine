@@ -72,7 +72,7 @@
 }
 
 .lose{
-    color: #ffffff;
+    color: #ff6a6a;
 }
 
 .slotButton{
@@ -84,6 +84,14 @@
     width: 170px;
 }
 
-.slotButton:hover{
-    background-color: #535bf2;
+
+
+.disabled{
+    display: block;
+    cursor:auto;
+    background-color: #232994;
+}
+
+button .disabled :hover{
+    border: 3px solid red;
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { WIN_RATE } from '../config/winrate'
 
 
-const useResults = () => {
+const useResults = (rounds) => {
  //const [resultsStatus, setResultsStatus] = useState([])
  const [resultOne, setResultOne] = useState([])
  const [resultTwo, setResultTwo] = useState([])
@@ -30,7 +30,7 @@ const useResults = () => {
     }
     checkWinner()
 
- },[resultOne,resultTwo,resultThree])
+ },[resultOne,resultTwo,resultThree,rounds])
  
  return {roundResult, setResultOne, setResultTwo, setResultThree}
  

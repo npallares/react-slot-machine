@@ -5,7 +5,7 @@ import getRounds from './utils/getRounds';
 
 const options ={ minOptions:3, maxOptions:9 }
 const iconHeight = 79;
-const timePerIcon = 100; // time
+//const timePerIcon = 100; // time
 const itemsInitialState=['SIETE','BANANA','MELON','LIMON','BAR','CAMPANA','NARANJA','UVA','CEREZA']
 
 const Slot = ({rounds, setResult}) => {
@@ -51,7 +51,8 @@ const Slot = ({rounds, setResult}) => {
     const roll = async() => {        
         return new Promise ((resolve)=>{
             const rounds = positionIndex + vueltas * iconHeight;
-            const totalTime = vueltas * timePerIcon;
+            //const totalTime = vueltas * timePerIcon;
+            const totalTime = 400;
             slotRef.current.style.transition = `background-position-y ${totalTime}ms`;
             slotRef.current.style.backgroundPositionY = `-${rounds*10}px`;
             
