@@ -101,7 +101,7 @@ const SlotContainer = () => {
   return (
     <section className={styles.slotPage}>
       <div className={styles.slotContainer}>
-      <h1 className={clsx(styles.message, stylesFromLabel(roundResult.rate))}>{label}</h1>
+      <h1 className={clsx(styles.message, styles.neonText,stylesFromLabel(roundResult.rate))}>{label}</h1>
         <div  className={styles.templateContainer}>
           <div className={styles.slotsSection}>
             <span className={styles.winLine}/> 
