@@ -52,7 +52,7 @@ const SlotContainer = () => {
         setDisabledButton(false)
         return setLabel( 'Win + 1')
       }    
-    },400)
+    },450)
     return ()=> {
       setLabel( '...')
       setRounds(0)
@@ -79,8 +79,8 @@ const SlotContainer = () => {
 
   if(status === 'uninitalized')return (
     <section className={styles.slotPage}>
-      <h1 className={clsx(styles.message, stylesFromLabel(roundResult.rate))}>{actionLabel}</h1>
       <div className={styles.slotContainer}>
+      <h1 className={clsx(styles.message, stylesFromLabel(roundResult.rate))}>{actionLabel}</h1>
         <div  className={styles.templateContainer}>
           <div className={styles.slotsSection}>
             <span className={styles.winLine}/> 
@@ -89,7 +89,7 @@ const SlotContainer = () => {
             <Slot rounds={rounds} setResult={setResultTwo}/>
             <Slot rounds={rounds} setResult={setResultThree}/>
           </div>
-      <h1 className={clsx(styles.credits)}>{'Credits: '+counter}</h1>
+      <h1 className={clsx(styles.credits, styles.neonText)}>{'Credits: '+counter}</h1>
           <div className={styles.buttonSection}>
             <button disabled={disabledButton} className={clsx(styles.slotButton, disabledButton && styles.disabled)}onClick={() => handlerClick()}>Spin</button>
             <button disabled={disabledSecondaryButton} className={clsx(styles.secondaryButton, styles.slotButton, disabledSecondaryButton && styles.disabled)}onClick={() => handlerSecondaryClick()}>Credits</button>
@@ -100,8 +100,8 @@ const SlotContainer = () => {
   )
   return (
     <section className={styles.slotPage}>
-      <h1 className={clsx(styles.message, stylesFromLabel(roundResult.rate))}>{label}</h1>
       <div className={styles.slotContainer}>
+      <h1 className={clsx(styles.message, stylesFromLabel(roundResult.rate))}>{label}</h1>
         <div  className={styles.templateContainer}>
           <div className={styles.slotsSection}>
             <span className={styles.winLine}/> 
@@ -110,7 +110,7 @@ const SlotContainer = () => {
             <Slot rounds={rounds} setResult={setResultTwo}/>
             <Slot rounds={rounds} setResult={setResultThree}/>
           </div>
-      <h1 className={clsx(styles.credits)}>{'Credits: '+counter}</h1>
+      <h1 className={clsx(styles.credits, styles.neonText)}>{'Credits: '+counter}</h1>
           <div className={styles.buttonSection}>
             <button disabled={disabledButton} className={clsx(styles.slotButton, disabledButton && styles.disabled)}onClick={() => handlerClick()}>Spin</button>
             <button disabled={disabledSecondaryButton} className={clsx(styles.slotButton, styles.secondaryButton, disabledSecondaryButton && styles.disabled)}onClick={() => handlerSecondaryClick()}>Credits</button>
