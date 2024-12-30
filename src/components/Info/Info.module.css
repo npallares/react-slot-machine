@@ -2,10 +2,11 @@
     font-size: 20px;
     font-family: "Press Start 2P", serif;
     color: white;
-    margin-bottom: 10px;
+   /*  margin-bottom: 10px; */
 }
 
 .infoText{
+    margin-top: -20px;
     width: 400px;
     height: auto;
 }
@@ -37,4 +38,24 @@
     0 0 92px #0fa,
     0 0 102px #0fa,
     0 0 151px #0fa;
+}
+
+@media screen and (max-width: 768px){
+    .infoPageContainer{
+        width: 90vw;
+        height: auto;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        margin-top: -50px;
+    }
+
+    .infoContainer{
+        display: block;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        margin-top: 20px;
+        padding-top: 50px;
+    }
 }

@@ -8,6 +8,7 @@ const Info = () => {
     <div className={styles.infoPageContainer}>
         <div className={styles.infoContainer}>
             <span className={clsx( styles.infoTitle )}>{'React Slot Machine'}</span>
+            <br/>
             <span className={styles.infoText}>{textInfo}</span>
         </div>
     </div>

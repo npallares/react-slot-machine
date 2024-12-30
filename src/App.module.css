@@ -6,3 +6,14 @@
   width: auto;
   height: auto;
 }
+
+@media screen and (max-width: 768px){
+  .app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: auto;
+    height: 600px;
+  }
+}
