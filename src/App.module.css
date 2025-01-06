@@ -5,6 +5,8 @@
   flex-direction: row;
   width: auto;
   height: auto;
+  overflow: hidden;
+  position: fixed
 }
 
 @media screen and (max-width: 768px){
@@ -13,7 +15,5 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: auto;
-    height: 600px;
   }
 }
